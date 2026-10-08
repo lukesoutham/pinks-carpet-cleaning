@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pink's Carpet Cleaning</title>
+<meta name="description" content="Professional carpet, tile, upholstery, air duct and dryer vent cleaning across Utah. No harsh chemicals, no residue, no hidden fees. 100% satisfaction guaranteed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf6f7; --surface:#ffffff; --surface2:#f4edef;
+  --ink:#1b1417; --ink2:#4a4147; --muted:#847a80; --line:rgba(27,20,23,.10); --line2:rgba(27,20,23,.055);
+  --rose:#c42a63; --rose-dk:#9f1f50; --rose-soft:rgba(196,42,99,.09); --rose-tint:#fbeef3;
+  --ink-deep:#1a1013; --ink-deep2:#241319;
+  --star:#e0a93e;
+  --maxw:1180px; --r:16px; --rs:12px;
+  --e1:cubic-bezier(.22,.7,.2,1); --e2:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;line-height:1.04;letter-spacing:-.02em;margin:0}
+p{margin:0}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.rose{color:var(--rose)}
+.eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"Hanken Grotesk";font-weight:600;font-size:1rem;padding:.9rem 1.5rem;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:transform .16s var(--e1),background .2s,box-shadow .2s,border-color .2s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--rose);color:#fff;box-shadow:0 10px 26px -12px rgba(196,42,99,.7)}
+.btn-primary:hover{background:var(--rose-dk);box-shadow:0 14px 30px -12px rgba(196,42,99,.75)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--surface)}
+.btn-lg{padding:1.05rem 1.9rem;font-size:1.06rem}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(250,246,247,.85);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);border-bottom:1px solid var(--line2)}
+.nav .bar{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1.2rem}
+.nav .logo{display:flex;align-items:center;gap:.6rem;font-family:"Bricolage Grotesque";font-weight:800;font-size:1.3rem;letter-spacing:-.02em}
+.nav .logo img{height:34px;width:auto}
+.nav .links{display:flex;align-items:center;gap:2rem}
+.nav .links a{font-weight:500;font-size:.98rem;color:var(--ink2);transition:color .18s}
+.nav .links a:hover{color:var(--rose)}
+.nav .navcta{display:flex;align-items:center;gap:.7rem}
+.nav .phone{display:inline-flex;align-items:center;gap:.45rem;font-weight:600;color:var(--ink)}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;color:var(--ink);padding:.4rem}
+.ico{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* hero */
+.hero{padding:140px 0 70px}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.3rem)}
+.hero .sub{margin-top:1.3rem;font-size:1.2rem;color:var(--ink2);max-width:30ch}
+.hero .hcta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.8rem}
+.hero .heroimg{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/11;background:var(--surface2);box-shadow:0 40px 80px -40px rgba(70,20,40,.4)}
+.hero .heroimg img{width:100%;height:100%;object-fit:cover}
+.hero .badge{position:absolute;left:18px;bottom:18px;display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);padding:.6rem .9rem;border-radius:14px;box-shadow:0 10px 30px -12px rgba(0,0,0,.3)}
+.hero .badge .stars{color:var(--star);font-weight:700;letter-spacing:.02em}
+.hero .badge small{display:block;color:var(--muted);font-size:.72rem;line-height:1.2}
+.hero .badge b{font-size:.95rem}
+
+/* trust strip */
+.trust{border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);background:var(--surface)}
+.trust .row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line2)}
+.trust .cell{background:var(--surface);padding:1.4rem 1.2rem;display:flex;gap:.8rem;align-items:center}
+.trust .cell .ico{color:var(--rose);width:1.5rem;height:1.5rem}
+.trust .cell b{font-family:"Bricolage Grotesque";font-size:1.02rem;display:block}
+.trust .cell span{color:var(--muted);font-size:.86rem}
+
+/* sections */
+section{padding:92px 0}
+.shead{max-width:40ch}
+.shead h2{font-size:clamp(2rem,3.6vw,2.9rem);margin-top:.5rem}
+.shead p{margin-top:1rem;color:var(--ink2);font-size:1.12rem}
+
+/* why */
+.why .lay{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:10px}
+.why .list{display:flex;flex-direction:column;gap:.2rem}
+.why .item{display:flex;gap:1rem;padding:1.3rem 0;border-top:1px solid var(--line)}
+.why .item:last-child{border-bottom:1px solid var(--line)}
+.why .item .ic{flex:none;width:46px;height:46px;border-radius:12px;background:var(--rose-soft);color:var(--rose);display:grid;place-items:center}
+.why .item .ic .ico{width:1.4rem;height:1.4rem}
+.why .item h3{font-size:1.15rem}
+.why .item p{color:var(--ink2);margin-top:.25rem;font-size:1rem}
+.why .shot{border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:var(--surface2);box-shadow:0 30px 70px -40px rgba(70,20,40,.4);position:relative}
+.why .shot img{width:100%;height:100%;object-fit:cover}
+.why .guarantee{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(27,16,19,.82);color:#fff;backdrop-filter:blur(6px);padding:1rem 1.1rem;border-radius:14px}
+.why .guarantee b{font-family:"Bricolage Grotesque";font-size:1.05rem}
+.why .guarantee p{color:rgba(255,255,255,.82);font-size:.9rem;margin-top:.2rem}
+
+/* services */
+.svc{background:var(--surface)}
+.svc .g{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:40px}
+.card{border-radius:var(--r);overflow:hidden;background:var(--bg);border:1px solid var(--line2)}
+.card.photo{grid-column:span 3;min-height:300px;position:relative;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.card.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.card.photo .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,14,0) 30%,rgba(20,10,14,.78));z-index:1}
+.card.photo .txt{position:relative;z-index:2;padding:1.5rem}
+.card.photo h3{font-size:1.4rem}
+.card.photo p{color:rgba(255,255,255,.85);margin-top:.35rem;font-size:.98rem}
+.card.photo.wide{grid-column:span 6;min-height:260px}
+.card.icon{grid-column:span 2;padding:1.6rem;display:flex;flex-direction:column;gap:.7rem}
+.card.icon .ic{width:48px;height:48px;border-radius:12px;background:var(--rose-soft);color:var(--rose);display:grid;place-items:center}
+.card.icon .ic .ico{width:1.5rem;height:1.5rem}
+.card.icon h3{font-size:1.2rem}
+.card.icon p{color:var(--ink2);font-size:.96rem}
+
+/* pricing */
+.price .g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.6rem;transition:transform .18s var(--e1),box-shadow .2s,border-color .2s}
+.pcard:hover{transform:translateY(-3px);box-shadow:0 24px 50px -30px rgba(70,20,40,.35);border-color:var(--rose-soft)}
+.pcard .pt{font-weight:600;color:var(--ink2);font-size:1.02rem}
+.pcard .pp{font-family:"Bricolage Grotesque";font-weight:700;font-size:2rem;margin-top:.5rem;letter-spacing:-.02em}
+.pcard .pp small{font-size:.9rem;color:var(--muted);font-weight:500;font-family:"Hanken Grotesk"}
+.price .note{margin-top:1.5rem;color:var(--muted);font-size:.92rem}
+
+/* showcase */
+.show{background:var(--surface)}
+.show .lay{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.show .ph{border-radius:20px;overflow:hidden;aspect-ratio:3/4;background:var(--surface2);box-shadow:0 30px 70px -40px rgba(70,20,40,.4)}
+.show .ph img{width:100%;height:100%;object-fit:cover}
+.show .meta{display:flex;align-items:center;gap:.7rem;margin-top:1.4rem;color:var(--muted)}
+.ratepill{display:inline-flex;align-items:center;gap:.45rem;background:var(--rose-tint);color:var(--rose-dk);font-weight:600;padding:.4rem .8rem;border-radius:999px;font-size:.9rem}
+.ratepill .s{color:var(--star)}
+.show ul.pts{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.7rem}
+.show ul.pts li{display:flex;gap:.6rem;color:var(--ink2)}
+.show ul.pts .ico{color:var(--rose);width:1.2rem;height:1.2rem;flex:none;margin-top:.25rem}
+
+/* areas */
+.areas .cols{columns:4;column-gap:24px;margin-top:36px}
+.areas .cols a{display:block;padding:.5rem 0;color:var(--ink2);border-bottom:1px solid var(--line2);break-inside:avoid;transition:color .16s,padding .16s}
+.areas .cols a:hover{color:var(--rose);padding-left:.4rem}
+
+/* footprint (dark band) */
+.foot-nat{background:var(--ink-deep);color:#fff}
+.foot-nat .shead h2{color:#fff}
+.foot-nat .shead p{color:rgba(255,255,255,.72)}
+.foot-nat .lg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.loc{background:var(--ink-deep2);border:1px solid rgba(255,255,255,.08);border-radius:var(--rs);padding:1.3rem}
+.loc.hq{border-color:rgba(196,42,99,.5);background:linear-gradient(160deg,rgba(196,42,99,.16),rgba(255,255,255,.02))}
+.loc .city{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.15rem}
+.loc .st{color:rgba(255,255,255,.55);font-size:.85rem;margin-top:.15rem}
+.loc .rate{margin-top:.8rem;color:var(--star);font-weight:700;font-size:.95rem}
+.loc .rate span{color:rgba(255,255,255,.6);font-weight:500;font-size:.82rem}
+.loc .tag{margin-top:.8rem;display:inline-block;color:rgba(255,255,255,.7);font-size:.82rem;border:1px solid rgba(255,255,255,.14);padding:.2rem .6rem;border-radius:999px}
+
+/* reviews */
+.rev .top{display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-end;justify-content:space-between}
+.rev .badges{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.rbadge{flex:1;min-width:210px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem}
+.rbadge .n{font-family:"Bricolage Grotesque";font-size:2.4rem;font-weight:700;line-height:1}
+.rbadge .st{color:var(--star);margin:.4rem 0 .2rem;font-weight:700}
+.rbadge .c{color:var(--muted);font-size:.9rem}
+.rbadge .loc{color:var(--ink);font-weight:600;margin-top:.5rem;background:none;border:0;padding:0}
+.rev .reviewlist{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem}
+.quote .q{font-size:1.02rem;color:var(--ink)}
+.quote .by{margin-top:.9rem;color:var(--muted);font-size:.88rem;font-weight:600}
+.todo{margin-top:1rem;font-size:.8rem;color:var(--muted);font-style:italic}
+
+/* CTA + form */
+.cta{background:var(--rose-tint)}
+.cta .lay{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.cta h2{font-size:clamp(2rem,3.6vw,2.9rem)}
+.cta p{margin-top:1rem;color:var(--ink2);font-size:1.12rem}
+.cta .callbig{margin-top:1.6rem;display:inline-flex;align-items:center;gap:.6rem;font-family:"Bricolage Grotesque";font-weight:700;font-size:1.7rem;color:var(--rose-dk)}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.8rem;box-shadow:0 30px 70px -45px rgba(70,20,40,.5)}
+.form h3{font-size:1.35rem}
+.field{margin-top:1rem;display:flex;flex-direction:column;gap:.35rem}
+.field label{font-size:.85rem;font-weight:600;color:var(--ink2)}
+.field input,.field select,.field textarea{font-family:"Hanken Grotesk";font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.75rem .85rem;transition:border-color .16s,box-shadow .16s}
+.field input::placeholder,.field textarea::placeholder{color:#a79da3}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 3px var(--rose-soft)}
+.form .btn{width:100%;justify-content:center;margin-top:1.3rem}
+.form .ok{display:none;text-align:center;padding:1rem 0}
+.form .ok.show{display:block}
+.form .ok .ic{width:54px;height:54px;border-radius:50%;background:var(--rose-soft);color:var(--rose);display:grid;place-items:center;margin:0 auto 1rem}
+.form.sent .fields{display:none}
+
+/* footer */
+.ftr{background:var(--ink-deep);color:rgba(255,255,255,.72);padding:64px 0 36px}
+.ftr .g{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px}
+.ftr .logo{display:flex;align-items:center;gap:.6rem;color:#fff;font-family:"Bricolage Grotesque";font-weight:800;font-size:1.3rem}
+.ftr .logo img{height:32px;filter:brightness(0) invert(1)}
+.ftr p{margin-top:1rem;max-width:32ch;font-size:.95rem}
+.ftr h4{color:#fff;font-family:"Bricolage Grotesque";font-size:1rem;margin:0 0 .9rem}
+.ftr a{display:block;color:rgba(255,255,255,.72);padding:.25rem 0;font-size:.95rem;transition:color .16s}
+.ftr a:hover{color:#fff}
+.ftr .bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;font-size:.85rem;color:rgba(255,255,255,.5)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--e2),transform .7s var(--e2)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .hero .grid,.why .lay,.show .lay,.cta .lay{grid-template-columns:1fr}
+  .hero{padding:120px 0 50px}
+  .hero .heroimg{order:-1}
+  .why .shot{aspect-ratio:16/11;max-height:420px}
+  .show .ph{aspect-ratio:16/11;max-height:420px}
+  .trust .row{grid-template-columns:1fr 1fr}
+  .svc .g{grid-template-columns:repeat(2,1fr)}
+  .card.photo,.card.icon,.card.photo.wide{grid-column:span 2}
+  .price .g{grid-template-columns:1fr 1fr}
+  .areas .cols{columns:2}
+  .foot-nat .lg{grid-template-columns:1fr 1fr}
+  .rev .reviewlist{grid-template-columns:1fr}
+  .ftr .g{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .nav .links{display:none}
+  .nav .phone span{display:none}
+  .menu-btn{display:block}
+  .price .g,.svc .g{grid-template-columns:1fr}
+  .card.photo,.card.icon,.card.photo.wide{grid-column:span 1}
+  .areas .cols{columns:1}
+  .foot-nat .lg,.ftr .g{grid-template-columns:1fr}
+  .trust .row{grid-template-columns:1fr}
+  .hero .hcta .btn{flex:1}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap bar">
+    <a class="logo" href="#top"><img src="assets/pinks-logo.png" alt="Pink's Carpet Cleaning"></a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#locations">Locations</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <div class="navcta">
+      <a class="phone" href="tel:+13854828861"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(385) 482-8861</span></a>
+      <a class="btn btn-primary" href="#quote">Get a free quote</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><svg class="ico" style="width:1.6rem;height:1.6rem" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>A spotless home,<br>without the <span class="rose">guesswork</span>.</h1>
+      <p class="sub">Professional carpet, tile, upholstery and air duct cleaning across Utah. No harsh chemicals, no residue, no hidden fees.</p>
+      <div class="hcta">
+        <a class="btn btn-primary btn-lg" href="#quote">Get a free quote</a>
+        <a class="btn btn-ghost btn-lg" href="tel:+13854828861">Call (385) 482-8861</a>
+      </div>
+    </div>
+    <div class="heroimg">
+      <img src="assets/hero.jpg" alt="Bright modern living room with freshly cleaned carpet" fetchpriority="high">
+      <div class="badge">
+        <div class="stars">★★★★★</div>
+        <div><b>5.0 on Google</b><small>Spanish Fork, 46 reviews</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap"><div class="row">
+    <div class="cell"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><div><b>No harsh chemicals</b><span>Safe for kids and pets</span></div></div>
+    <div class="cell"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg><div><b>No sticky residue</b><span>Carpets stay cleaner, longer</span></div></div>
+    <div class="cell"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><div><b>No hidden fees</b><span>The quote is the price</span></div></div>
+    <div class="cell"><svg class="ico" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><div><b>Satisfaction guaranteed</b><span>We fix it or refund you</span></div></div>
+  </div></div>
+</div>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="shead rv"><span class="eyebrow">Why Pink's</span><h2>Clean you can feel, from a team that shows up right.</h2></div>
+    <div class="lay">
+      <div class="list rv">
+        <div class="item"><div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h3>A decade of trust</h3><p>Established in 2012 and locally run, with the same crews and standards our neighbors already rely on.</p></div></div>
+        <div class="item"><div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path d="M12 7v5l3 2"/></svg></div><div><h3>Fast, flexible scheduling</h3><p>Book the slot that works for you. We confirm the window and show up inside it.</p></div></div>
+        <div class="item"><div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><div><h3>Honest, upfront pricing</h3><p>You see the rate before we start. No surprise add-ons when the job is done.</p></div></div>
+        <div class="item"><div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.9 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg></div><div><h3>Rated 5.0 in Spanish Fork</h3><p>Our home branch holds a perfect 5.0 on Google across dozens of verified reviews.</p></div></div>
+      </div>
+      <div class="shot rv">
+        <img src="assets/action.jpg" alt="Technician steam cleaning a carpet">
+        <div class="guarantee"><b>100% satisfaction guarantee</b><p>If the result is not right, we make it right or refund your money.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="svc" id="services">
+  <div class="wrap">
+    <div class="shead rv"><h2>Every surface, one trusted crew.</h2><p>From deep carpet extraction to air ducts and upholstery, Pink's handles the whole home.</p></div>
+    <div class="g">
+      <div class="card photo rv"><img src="assets/action.jpg" alt="Carpet cleaning"><div class="ov"></div><div class="txt"><h3>Carpet cleaning</h3><p>Deep hot-water extraction that lifts out dirt, allergens and odor without soaps or residue.</p></div></div>
+      <div class="card photo rv"><img src="assets/tile.jpg" alt="Tile and grout cleaning"><div class="ov"></div><div class="txt"><h3>Tile &amp; grout</h3><p>Restores grout lines and sealed tile to a bright, even finish.</p></div></div>
+      <div class="card icon rv"><div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></div><h3>Air duct cleaning</h3><p>Clears built-up dust from your system for cleaner air at home.</p></div>
+      <div class="card photo rv"><img src="assets/upholstery.jpg" alt="Upholstery cleaning"><div class="ov"></div><div class="txt"><h3>Upholstery</h3><p>Gentle, thorough cleaning that refreshes sofas and chairs.</p></div></div>
+      <div class="card icon rv"><div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4v16M4 12h12a4 4 0 0 0 0-8H4"/></svg></div><h3>Dryer vent cleaning</h3><p>Removes lint buildup to keep your dryer safe and efficient.</p></div>
+      <div class="card icon rv"><div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M10 5.5a4 4 0 1 1 4 7 4 4 0 0 1-4-7zM4 20c1-3 4-5 8-5s7 2 8 5"/></svg></div><h3>Pet urine &amp; odor</h3><p>Targeted treatment that neutralizes odor at the source.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="price" id="pricing">
+  <div class="wrap">
+    <div class="shead rv"><span class="eyebrow">Straightforward pricing</span><h2>Know the number before we knock.</h2><p>Simple rates, no hidden fees. Final quote confirmed when we see the space.</p></div>
+    <div class="g">
+      <div class="pcard rv"><div class="pt">Carpet cleaning</div><div class="pp">$40-$60<small>/room</small></div></div>
+      <div class="pcard rv"><div class="pt">Air duct cleaning</div><div class="pp">$30-$40<small>/vent</small></div></div>
+      <div class="pcard rv"><div class="pt">Upholstery cleaning</div><div class="pp">$15-$20<small>/linear ft</small></div></div>
+      <div class="pcard rv"><div class="pt">Dryer vent cleaning</div><div class="pp">$50-$75</div></div>
+      <div class="pcard rv"><div class="pt">Tile &amp; grout cleaning</div><div class="pp">$0.50-$0.75<small>/sq ft</small></div></div>
+      <div class="pcard rv"><div class="pt">Scotch Guard protection</div><div class="pp">$22.50<small>/room</small></div></div>
+    </div>
+    <p class="note">Prices shown are the standard range. Ask about bundle pricing when you book more than one service.</p>
+  </div>
+</section>
+
+<!-- SHOWCASE: SPANISH FORK -->
+<section class="show" id="spanishfork">
+  <div class="wrap">
+    <div class="lay">
+      <div class="ph rv"><img src="assets/logan-whitney.jpg" alt="Pink's Carpet Cleaning, Spanish Fork"></div>
+      <div class="rv">
+        <span class="eyebrow">Spanish Fork, Utah</span>
+        <h2 style="margin-top:.5rem;font-size:clamp(1.9rem,3.4vw,2.7rem)">Your local Pink's, since 2012.</h2>
+        <div class="meta"><span class="ratepill"><span class="s">★</span> 5.0 on Google</span><span>46 verified reviews</span></div>
+        <p style="margin-top:1.2rem;color:var(--ink2)">Locally owned and operated, our Spanish Fork branch serves Utah and Salt Lake counties with the same crews, equipment and guarantee behind every job.</p>
+        <ul class="pts">
+          <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Same-week appointments across the valley</li>
+          <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Truck-mounted equipment for a deeper clean</li>
+          <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Backed by the 100% satisfaction guarantee</li>
+        </ul>
+        <div style="margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#quote">Book Spanish Fork</a>
+          <a class="btn btn-ghost" href="tel:+13854828861">Call the local team</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="areas" id="areas">
+  <div class="wrap">
+    <div class="shead rv"><h2>Serving all of Northern Utah.</h2><p>From Spanish Fork across Utah and Salt Lake counties. If your city is nearby and not listed, just ask.</p></div>
+    <div class="cols rv">
+      <a href="#quote">Alpine</a><a href="#quote">Aspen Grove</a><a href="#quote">Cedar Fort</a><a href="#quote">Copperton</a><a href="#quote">Draper</a><a href="#quote">Eagle Mountain</a><a href="#quote">Fairfield</a><a href="#quote">Herriman</a><a href="#quote">Highland</a><a href="#quote">Lark</a><a href="#quote">Lehi</a><a href="#quote">Lindon</a><a href="#quote">Magna</a><a href="#quote">Mapleton</a><a href="#quote">Mercur</a><a href="#quote">Murray</a><a href="#quote">Orem</a><a href="#quote">Pleasant Grove</a><a href="#quote">Provo</a><a href="#quote">Salt Lake City</a><a href="#quote">Sandy</a><a href="#quote">Saratoga Springs</a><a href="#quote">South Jordan</a><a href="#quote">Spanish Fork</a><a href="#quote">Springville</a><a href="#quote">Sundance</a><a href="#quote">West Jordan</a><a href="#quote">West Valley City</a><a href="#quote">Wildwood</a>
+    </div>
+  </div>
+</section>
+
+<!-- NATIONAL FOOTPRINT -->
+<section class="foot-nat" id="locations">
+  <div class="wrap">
+    <div class="shead rv"><span class="eyebrow" style="color:#e78cae">The Pink's network</span><h2>One standard, coast to coast.</h2><p>The clean, the guarantee and the experience are identical at every Pink's location. New markets inherit the playbook from day one.</p></div>
+    <div class="lg">
+      <div class="loc hq rv"><div class="city">Spanish Fork</div><div class="st">Utah &middot; Home branch</div><div class="rate">★ 5.0 <span>/ 46 reviews</span></div></div>
+      <div class="loc rv"><div class="city">Lehi</div><div class="st">Utah</div><div class="rate">★ 4.9 <span>/ 282 reviews</span></div></div>
+      <div class="loc rv"><div class="city">Dallas</div><div class="st">Texas</div><div class="tag">Now serving</div></div>
+      <div class="loc rv"><div class="city">Colorado Springs</div><div class="st">Colorado</div><div class="tag">Now serving</div></div>
+      <div class="loc rv"><div class="city">Las Vegas</div><div class="st">Nevada</div><div class="tag">Now serving</div></div>
+      <div class="loc rv"><div class="city">Pueblo</div><div class="st">Colorado</div><div class="tag">Now serving</div></div>
+      <div class="loc rv"><div class="city">Louisiana</div><div class="st">Louisiana</div><div class="tag">Now serving</div></div>
+      <div class="loc rv"><div class="city">Riverside</div><div class="st">California</div><div class="tag">Now serving</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="rev" id="reviews">
+  <div class="wrap">
+    <div class="top">
+      <div class="shead rv"><h2>Reviews that speak for the work.</h2><p>Real ratings from verified Google customers at our Utah branches.</p></div>
+    </div>
+    <div class="badges rv">
+      <div class="rbadge"><div class="n">5.0</div><div class="st">★★★★★</div><div class="c">46 Google reviews</div><div class="loc">Spanish Fork, UT</div></div>
+      <div class="rbadge"><div class="n">4.9</div><div class="st">★★★★★</div><div class="c">282 Google reviews</div><div class="loc">Lehi, UT</div></div>
+      <div class="rbadge" style="display:flex;flex-direction:column;justify-content:center"><div style="font-family:'Bricolage Grotesque';font-weight:700;font-size:1.2rem">Trusted across the valley</div><p style="color:var(--ink2);margin-top:.5rem;font-size:.95rem">Hundreds of five-star jobs from Spanish Fork to Salt Lake.</p><a class="btn btn-ghost" style="margin-top:1rem" href="#quote">Read our reviews</a></div>
+    </div>
+    <div class="reviewlist rv" id="reviewlist">
+      <!-- TODO: drop in 3 real verified Google reviews (name + text) once pulled. Placeholders below are clearly marked and must be replaced before this goes live. -->
+      <div class="quote"><div class="q">Real customer reviews will be placed here, pulled directly from Google.</div><div class="by">Placeholder for Luke to confirm</div></div>
+      <div class="quote"><div class="q">We only show verified reviews. No invented quotes.</div><div class="by">Placeholder for Luke to confirm</div></div>
+      <div class="quote"><div class="q">Three strongest recent Google reviews go in these three cards.</div><div class="by">Placeholder for Luke to confirm</div></div>
+    </div>
+    <p class="todo">Note for Luke: these three cards are placeholders. I will replace them with real Google reviews once we pull them, so nothing is invented.</p>
+  </div>
+</section>
+
+<!-- CTA + FORM -->
+<section class="cta" id="quote">
+  <div class="wrap lay">
+    <div class="rv">
+      <h2>Ready for a cleaner home?</h2>
+      <p>Tell us what you need and we will send a fast, no-obligation quote. Prefer to talk? Call and we will pick up.</p>
+      <a class="callbig" href="tel:+13854828861"><svg class="ico" style="width:1.6rem;height:1.6rem" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (385) 482-8861</a>
+    </div>
+    <form class="form" id="quoteForm" novalidate>
+      <div class="fields">
+        <h3>Get your free quote</h3>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" placeholder="Your name" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="(385) 000-0000" required></div>
+        <div class="field"><label for="f-city">City</label><input id="f-city" name="city" placeholder="Spanish Fork, Provo, Orem..."></div>
+        <div class="field"><label for="f-service">Service</label><select id="f-service" name="service"><option>Carpet cleaning</option><option>Tile &amp; grout</option><option>Upholstery</option><option>Air duct cleaning</option><option>Dryer vent cleaning</option><option>Pet urine &amp; odor</option><option>Not sure yet</option></select></div>
+        <div class="field"><label for="f-msg">Anything we should know?</label><textarea id="f-msg" name="message" rows="3" placeholder="Rooms, square footage, timing..."></textarea></div>
+        <button class="btn btn-primary" type="submit">Send my quote request</button>
+      </div>
+      <div class="ok" id="formOk"><div class="ic"><svg class="ico" style="width:1.6rem;height:1.6rem" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><b style="font-family:'Bricolage Grotesque';font-size:1.2rem">Thanks, we got it.</b><p style="color:var(--ink2);margin-top:.4rem">The Pink's team will reach out shortly with your quote.</p></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="g">
+      <div>
+        <div class="logo"><img src="assets/pinks-logo.png" alt="Pink's Carpet Cleaning">Pink's</div>
+        <p>Professional carpet, tile, upholstery and air duct cleaning. No chemicals, no residue, no hidden fees. Guaranteed.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#services">Carpet cleaning</a>
+        <a href="#services">Tile &amp; grout</a>
+        <a href="#services">Upholstery</a>
+        <a href="#services">Air duct &amp; dryer vent</a>
+        <a href="#services">Pet urine &amp; odor</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="tel:+13854828861">(385) 482-8861</a>
+        <a href="mailto:logan@pinkscarpetcleaning.com">logan@pinkscarpetcleaning.com</a>
+        <a href="#areas">Service areas</a>
+        <a href="#quote">Request a quote</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>&copy; 2026 Pink's Carpet Cleaning. Serving Northern Utah.</span>
+      <span>Carpet, tile, upholstery, air duct and dryer vent cleaning.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// nav solidify via sentinel (no scroll listener)
+(function(){
+  var nav=document.getElementById('nav');
+  var s=document.createElement('div');s.style.cssText='position:absolute;top:60px;height:1px;width:1px';
+  document.body.prepend(s);
+  new IntersectionObserver(function(e){nav.classList.toggle('solid',!e[0].isIntersecting);},{threshold:0}).observe(s);
+})();
+// reveal on scroll
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+// mobile menu (simple anchor jump list)
+(function(){
+  var b=document.getElementById('menuBtn');
+  if(b)b.addEventListener('click',function(){document.getElementById('services').scrollIntoView({behavior:'smooth'});});
+})();
+// quote form: client-side success (endpoint to be wired in ~2 min with Formspree or similar)
+(function(){
+  var f=document.getElementById('quoteForm');
+  if(!f)return;
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var n=f.querySelector('#f-name'),p=f.querySelector('#f-phone');
+    if(!n.value.trim()||!p.value.trim()){(!n.value.trim()?n:p).focus();return;}
+    // TODO: POST to the real form endpoint here.
+    f.classList.add('sent');
+    document.getElementById('formOk').classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>
